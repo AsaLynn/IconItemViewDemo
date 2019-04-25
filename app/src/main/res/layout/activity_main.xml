@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tv_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableRight="@mipmap/ic_launcher"
+            android:drawablePadding="20dp"
+            android:gravity="center_vertical"
+            android:text="this is a item view!" />
+
+        <View
+            android:id="@+id/v_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_below="@id/tv_text"
+            android:layout_marginLeft="20dp"
+            android:background="@color/colorAccent" />
+
+    </RelativeLayout>
+
+    <com.zxn.iconitemview.IconItemView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        app:leftIcon="@mipmap/ic_launcher"
+        app:lineColor="#999999"
+        app:rightIcon="@mipmap/ic_launcher"
+        app:text="@string/app_name"
+        app:textColor="#0033cc" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:paddingLeft="25dp"
+        app:leftIcon="@drawable/ic_water_loan"
+        app:leftIconPadding="20dp"
+        app:lineColor="@color/c_dddddd"
+        app:rightIcon="@drawable/right"
+        app:rightIconPadding="20dp"
+        app:text="@string/app_name"
+        app:textColor="@color/c_666666" />
+
+</LinearLayout>
