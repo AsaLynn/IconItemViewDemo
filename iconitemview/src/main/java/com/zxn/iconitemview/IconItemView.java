@@ -19,6 +19,7 @@ import android.widget.TextView;
 public class IconItemView extends RelativeLayout {
     protected TextView tvText;
     protected View vLine;
+    protected TextView tvRightText;
     private Drawable mLeftIconDrawable;
     private Drawable mRightIconDrawable;
     private String mText;
@@ -28,6 +29,9 @@ public class IconItemView extends RelativeLayout {
     private int mRightIconPadding;
     private int mLeftMargin;
     private int mMinimumWidth;
+    private String mRightText;
+    private int mRightIconDrawableWidth;
+    private int mRightTextPadding;
 
     public IconItemView(Context context) {
         this(context, null);
@@ -55,15 +59,21 @@ public class IconItemView extends RelativeLayout {
         tvText.setPadding(0, 0, mRightIconPadding, 0);
 
 
-        RelativeLayout.LayoutParams layoutParams = (LayoutParams) vLine.getLayoutParams();
+        LayoutParams layoutParams = (LayoutParams) vLine.getLayoutParams();
         ViewGroup.LayoutParams params = getLayoutParams();
-        if (params instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (MarginLayoutParams) params;
+        if (params instanceof MarginLayoutParams) {
+            MarginLayoutParams marginLayoutParams = (MarginLayoutParams) params;
             mLeftMargin = marginLayoutParams.leftMargin;
         }
-        //int paddingLeft = this.getPaddingLeft();
+
         int drawablePadding = tvText.getCompoundDrawablePadding();
         layoutParams.leftMargin = mMinimumWidth + drawablePadding + mLeftMargin;
+
+        tvRightText.setTextColor(mTextColor);
+        tvRightText.setText(mRightText);
+        RelativeLayout.LayoutParams rightTextLayoutParams = (LayoutParams) tvRightText.getLayoutParams();
+        rightTextLayoutParams.rightMargin = mRightIconPadding + mRightIconDrawableWidth + mRightTextPadding;
+        tvRightText.setLayoutParams(rightTextLayoutParams);
     }
 
     private void initAttributeSet(AttributeSet attrs) {
@@ -76,13 +86,17 @@ public class IconItemView extends RelativeLayout {
             }
             mRightIconDrawable = typedArray.getDrawable(R.styleable.IconItemView_rightIcon);
             if (null != mRightIconDrawable) {
-                mRightIconDrawable.setBounds(0, 0, mRightIconDrawable.getMinimumWidth(), mRightIconDrawable.getMinimumHeight());
+                mRightIconDrawableWidth = mRightIconDrawable.getMinimumWidth();
+                mRightIconDrawable.setBounds(0, 0, mRightIconDrawableWidth, mRightIconDrawable.getMinimumHeight());
             }
             mText = typedArray.getString(R.styleable.IconItemView_text);
             mLineColor = typedArray.getColor(R.styleable.IconItemView_lineColor, Color.WHITE);
             mTextColor = typedArray.getColor(R.styleable.IconItemView_textColor, Color.BLACK);
             mLeftIconPadding = typedArray.getDimensionPixelSize(R.styleable.IconItemView_leftIconPadding, 0);
             mRightIconPadding = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightIconPadding, 0);
+
+            mRightText = typedArray.getString(R.styleable.IconItemView_rightText);
+            mRightTextPadding = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightTextPadding, 0);
             typedArray.recycle();
         }
 
@@ -92,10 +106,10 @@ public class IconItemView extends RelativeLayout {
         LayoutInflater.from(getContext()).inflate(R.layout.layout_icon_item_view, this);
         tvText = (TextView) findViewById(R.id.tv_text);
         vLine = (View) findViewById(R.id.v_line);
-//        isClickable()
-//        setClickable(true);
+        tvRightText = (TextView) findViewById(R.id.tv_right_text);
         if (getBackground() == null) {
             setBackgroundResource(R.drawable.bg_d_sc_default);
         }
+
     }
 }

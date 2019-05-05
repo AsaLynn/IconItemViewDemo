@@ -17,4 +17,14 @@
         android:layout_alignParentBottom="true"
         android:background="#66ff66" />
 
+    <TextView
+        android:id="@+id/tv_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:maxLines="1"
+        tools:text="1.18" />
+
 </merge>

@@ -9,5 +9,7 @@
         <attr name="textColor" format="color" />
         <attr name="leftIconPadding" format="dimension" />
         <attr name="rightIconPadding" format="dimension" />
+        <attr name="rightText" format="string" />
+        <attr name="rightTextPadding" format="dimension" />
     </declare-styleable>
 </resources>

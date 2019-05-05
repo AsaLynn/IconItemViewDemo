@@ -50,6 +50,8 @@
         app:lineColor="@color/c_dddddd"
         app:rightIcon="@drawable/right"
         app:rightIconPadding="20dp"
+        app:rightText="59306663"
+        app:rightTextPadding="10dp"
         app:text="@string/app_name"
         app:textColor="@color/c_666666" />
 
