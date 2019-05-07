@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,6 +33,8 @@ public class IconItemView extends RelativeLayout {
     private String mRightText;
     private int mRightIconDrawableWidth;
     private int mRightTextPadding;
+    private int mRightTextColor;
+    private int mRightTextSize;
 
     public IconItemView(Context context) {
         this(context, null);
@@ -74,6 +77,8 @@ public class IconItemView extends RelativeLayout {
         RelativeLayout.LayoutParams rightTextLayoutParams = (LayoutParams) tvRightText.getLayoutParams();
         rightTextLayoutParams.rightMargin = mRightIconPadding + mRightIconDrawableWidth + mRightTextPadding;
         tvRightText.setLayoutParams(rightTextLayoutParams);
+        tvRightText.setTextColor(mRightTextColor);
+        tvRightText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mRightTextSize);
     }
 
     private void initAttributeSet(AttributeSet attrs) {
@@ -97,6 +102,9 @@ public class IconItemView extends RelativeLayout {
 
             mRightText = typedArray.getString(R.styleable.IconItemView_rightText);
             mRightTextPadding = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightTextPadding, 0);
+            mRightTextColor = typedArray.getColor(R.styleable.IconItemView_rightTextColor, Color.BLACK);
+            mRightTextSize = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightTextSize, sp2px(getContext(), 14));
+
             typedArray.recycle();
         }
 
@@ -121,5 +129,21 @@ public class IconItemView extends RelativeLayout {
     public void setRightText(String rightText) {
         this.mRightText = rightText;
         tvRightText.setText(mRightText);
+    }
+
+
+    /**
+     * 单位转换: sp  px
+     *
+     * @param context context
+     * @param sp      sp
+     * @return px
+     */
+    public static int sp2px(Context context, int sp) {
+        return (int) (getFontDensity(context) * sp + 0.5);
+    }
+
+    public static float getFontDensity(Context context) {
+        return context.getResources().getDisplayMetrics().scaledDensity;
     }
 }

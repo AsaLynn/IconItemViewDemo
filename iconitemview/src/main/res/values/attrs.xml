@@ -11,5 +11,9 @@
         <attr name="rightIconPadding" format="dimension" />
         <attr name="rightText" format="string" />
         <attr name="rightTextPadding" format="dimension" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="rightTextSize" format="dimension" />
+
+
     </declare-styleable>
 </resources>
