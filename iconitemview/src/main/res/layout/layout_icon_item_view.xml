@@ -27,4 +27,12 @@
         android:maxLines="1"
         tools:text="1.18" />
 
+    <ImageView
+        android:layout_alignParentRight="true"
+        android:id="@+id/iv_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
 </merge>

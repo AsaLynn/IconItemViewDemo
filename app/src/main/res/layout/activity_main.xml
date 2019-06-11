@@ -55,4 +55,18 @@
         app:text="@string/app_name"
         app:textColor="@color/c_666666" />
 
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_water"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:paddingLeft="25dp"
+        app:leftIcon="@drawable/ic_water_loan"
+        app:leftIconPadding="20dp"
+        app:lineColor="@color/c_dddddd"
+        app:rightIconPadding="20dp"
+        app:rightTextPadding="10dp"
+        app:text="@string/app_name"
+        app:textColor="@color/c_666666" />
+
 </LinearLayout>

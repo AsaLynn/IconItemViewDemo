@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -35,6 +37,7 @@ public class IconItemView extends RelativeLayout {
     private int mRightTextPadding;
     private int mRightTextColor;
     private int mRightTextSize;
+    private ImageView mIvRight;
 
     public IconItemView(Context context) {
         this(context, null);
@@ -115,6 +118,8 @@ public class IconItemView extends RelativeLayout {
         tvText = (TextView) findViewById(R.id.tv_text);
         vLine = (View) findViewById(R.id.v_line);
         tvRightText = (TextView) findViewById(R.id.tv_right_text);
+        mIvRight = (ImageView) findViewById(R.id.iv_right);
+
         if (getBackground() == null) {
             setBackgroundResource(R.drawable.bg_d_sc_default);
         }
@@ -131,6 +136,23 @@ public class IconItemView extends RelativeLayout {
         tvRightText.setText(mRightText);
     }
 
+    public ImageView getmIvRight() {
+        return mIvRight;
+    }
+
+    /**
+     * 设置右侧问题的icon.
+     */
+    public void setRightIcon(@DrawableRes int resId) {
+        Drawable drawable = getResources().getDrawable(resId);
+        mRightIconDrawable = drawable;
+        if (null != mRightIconDrawable) {
+            mRightIconDrawableWidth = mRightIconDrawable.getMinimumWidth();
+            mRightIconDrawable.setBounds(0, 0, mRightIconDrawableWidth, mRightIconDrawable.getMinimumHeight());
+        }
+        tvText.setCompoundDrawables(mLeftIconDrawable, null, mRightIconDrawable, null);
+
+    }
 
     /**
      * 单位转换: sp  px
