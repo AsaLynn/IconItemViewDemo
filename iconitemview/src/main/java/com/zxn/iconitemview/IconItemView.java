@@ -127,7 +127,7 @@ public class IconItemView extends RelativeLayout {
     }
 
     /**
-     * 设置左侧文字
+     * 设置右侧文字
      *
      * @param rightText 文字
      */
@@ -135,6 +135,15 @@ public class IconItemView extends RelativeLayout {
         this.mRightText = rightText;
         tvRightText.setText(mRightText);
     }
+
+    /**
+     * 设置右侧文字
+     */
+    public String getRightText() {
+        //this.mRightText = rightText;
+        return tvRightText.getText().toString();
+    }
+
 
     public ImageView getmIvRight() {
         return mIvRight;
