@@ -177,4 +177,19 @@ public class IconItemView extends RelativeLayout {
     public static float getFontDensity(Context context) {
         return context.getResources().getDisplayMetrics().scaledDensity;
     }
+
+
+    public TextView getTitleView() {
+        return tvText;
+    }
+
+    public View getLineView() {
+        return vLine;
+    }
+
+    public TextView getRightTextView() {
+        return tvRightText;
+    }
+
+
 }
