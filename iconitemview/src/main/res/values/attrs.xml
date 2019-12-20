@@ -13,7 +13,7 @@
         <attr name="rightTextPadding" format="dimension" />
         <attr name="rightTextColor" format="color" />
         <attr name="rightTextSize" format="dimension" />
-
-
+        <attr name="rightTextSingleLine" format="boolean" />
+        <attr name="rightTextWidth" format="dimension" />
     </declare-styleable>
 </resources>

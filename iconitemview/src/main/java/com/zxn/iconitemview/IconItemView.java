@@ -38,6 +38,8 @@ public class IconItemView extends RelativeLayout {
     private int mRightTextColor;
     private int mRightTextSize;
     private ImageView mIvRight;
+    private boolean isRightTextSingleLine = true;
+    private int mRightTextWidth;
 
     public IconItemView(Context context) {
         this(context, null);
@@ -52,6 +54,21 @@ public class IconItemView extends RelativeLayout {
         initView();
         initAttributeSet(attrs);
         refreshView();
+    }
+
+    /**
+     * 单位转换: sp  px
+     *
+     * @param context context
+     * @param sp      sp
+     * @return px
+     */
+    public static int sp2px(Context context, int sp) {
+        return (int) (getFontDensity(context) * sp + 0.5);
+    }
+
+    public static float getFontDensity(Context context) {
+        return context.getResources().getDisplayMetrics().scaledDensity;
     }
 
     private void refreshView() {
@@ -79,9 +96,19 @@ public class IconItemView extends RelativeLayout {
         tvRightText.setText(mRightText);
         RelativeLayout.LayoutParams rightTextLayoutParams = (LayoutParams) tvRightText.getLayoutParams();
         rightTextLayoutParams.rightMargin = mRightIconPadding + mRightIconDrawableWidth + mRightTextPadding;
+        if (mRightTextWidth != 0){
+            rightTextLayoutParams.width = mRightTextWidth;
+        }
         tvRightText.setLayoutParams(rightTextLayoutParams);
         tvRightText.setTextColor(mRightTextColor);
         tvRightText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mRightTextSize);
+
+        if (isRightTextSingleLine) {
+            tvRightText.setMaxLines(1);
+        } else {
+            tvRightText.setMaxLines(Integer.MAX_VALUE);
+        }
+
     }
 
     private void initAttributeSet(AttributeSet attrs) {
@@ -108,6 +135,9 @@ public class IconItemView extends RelativeLayout {
             mRightTextColor = typedArray.getColor(R.styleable.IconItemView_rightTextColor, Color.BLACK);
             mRightTextSize = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightTextSize, sp2px(getContext(), 14));
 
+            isRightTextSingleLine = typedArray.getBoolean(R.styleable.IconItemView_rightTextSingleLine, true);
+            mRightTextWidth = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightTextWidth, 0);
+
             typedArray.recycle();
         }
 
@@ -128,6 +158,14 @@ public class IconItemView extends RelativeLayout {
 
     /**
      * 设置右侧文字
+     */
+    public String getRightText() {
+        //this.mRightText = rightText;
+        return tvRightText.getText().toString();
+    }
+
+    /**
+     * 设置右侧文字
      *
      * @param rightText 文字
      */
@@ -135,15 +173,6 @@ public class IconItemView extends RelativeLayout {
         this.mRightText = rightText;
         tvRightText.setText(mRightText);
     }
-
-    /**
-     * 设置右侧文字
-     */
-    public String getRightText() {
-        //this.mRightText = rightText;
-        return tvRightText.getText().toString();
-    }
-
 
     public ImageView getmIvRight() {
         return mIvRight;
@@ -162,22 +191,6 @@ public class IconItemView extends RelativeLayout {
         tvText.setCompoundDrawables(mLeftIconDrawable, null, mRightIconDrawable, null);
 
     }
-
-    /**
-     * 单位转换: sp  px
-     *
-     * @param context context
-     * @param sp      sp
-     * @return px
-     */
-    public static int sp2px(Context context, int sp) {
-        return (int) (getFontDensity(context) * sp + 0.5);
-    }
-
-    public static float getFontDensity(Context context) {
-        return context.getResources().getDisplayMetrics().scaledDensity;
-    }
-
 
     public TextView getTitleView() {
         return tvText;

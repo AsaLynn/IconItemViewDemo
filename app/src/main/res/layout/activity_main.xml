@@ -69,4 +69,21 @@
         app:text="@string/app_name"
         app:textColor="@color/c_666666" />
 
+    <com.zxn.iconitemview.IconItemView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:paddingLeft="25dp"
+        app:leftIcon="@drawable/ic_water_loan"
+        app:leftIconPadding="20dp"
+        app:lineColor="@color/c_dddddd"
+        app:rightIcon="@drawable/right"
+        app:rightIconPadding="20dp"
+        app:rightTextSingleLine="false"
+        app:rightTextWidth="150dp"
+        app:rightText="59306663123456789312345678931234567893123456789312345678931234567893123456789"
+        app:rightTextPadding="10dp"
+        app:text="@string/app_name"
+        app:textColor="@color/c_666666" />
+
 </LinearLayout>
