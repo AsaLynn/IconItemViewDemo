@@ -100,4 +100,20 @@
         app:text="@string/app_name"
         app:textColor="@color/c_666666" />
 
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_5"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:paddingLeft="25dp"
+        app:leftIconPadding="20dp"
+        app:lineColor="@color/c_dddddd"
+        app:rightIconPadding="20dp"
+        app:rightTextPadding="10dp"
+        app:text="标题"
+        app:rightText="启用"
+        app:showLine="false"
+        app:rightTextSingleLine="true"
+        app:textColor="@color/c_666666" />
+
 </LinearLayout>

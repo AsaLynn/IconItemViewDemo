@@ -1,6 +1,6 @@
 package com.zxn.iconitemviewdemo;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -24,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
 //        iv_water1.setImageResource(R.drawable.ic_water_loan);
 
         IconItemView iiv_water = findViewById(R.id.iiv_water);
-        ImageView imageView = iiv_water.getmIvRight();
+        IconItemView iiv_5 = findViewById(R.id.iiv_5);
+        iiv_5.setLeftText("标记");
+        iiv_5.setLeftTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        iiv_5.setRightText("593066");
+        iiv_5.setRightTextColor(getResources().getColor(R.color.c_666666));
+        ImageView imageView = iiv_water.getIvRight();
         imageView.setVisibility(View.VISIBLE);
         imageView.setImageResource(R.mipmap.ic_launcher);
 
@@ -41,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
 
     }
 }

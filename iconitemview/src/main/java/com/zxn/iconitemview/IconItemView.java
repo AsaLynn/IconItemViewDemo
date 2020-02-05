@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -14,6 +13,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import androidx.annotation.ColorInt;
+import androidx.annotation.DrawableRes;
 
 /**
  * 条目view.
@@ -40,6 +42,7 @@ public class IconItemView extends RelativeLayout {
     private ImageView mIvRight;
     private boolean isRightTextSingleLine = true;
     private int mRightTextWidth;
+    private boolean mShowLine;
 
     public IconItemView(Context context) {
         this(context, null);
@@ -96,7 +99,7 @@ public class IconItemView extends RelativeLayout {
         tvRightText.setText(mRightText);
         RelativeLayout.LayoutParams rightTextLayoutParams = (LayoutParams) tvRightText.getLayoutParams();
         rightTextLayoutParams.rightMargin = mRightIconPadding + mRightIconDrawableWidth + mRightTextPadding;
-        if (mRightTextWidth != 0){
+        if (mRightTextWidth != 0) {
             rightTextLayoutParams.width = mRightTextWidth;
         }
         tvRightText.setLayoutParams(rightTextLayoutParams);
@@ -137,6 +140,7 @@ public class IconItemView extends RelativeLayout {
 
             isRightTextSingleLine = typedArray.getBoolean(R.styleable.IconItemView_rightTextSingleLine, true);
             mRightTextWidth = typedArray.getDimensionPixelSize(R.styleable.IconItemView_rightTextWidth, 0);
+            mShowLine = typedArray.getBoolean(R.styleable.IconItemView_showLine, true);
 
             typedArray.recycle();
         }
@@ -153,7 +157,7 @@ public class IconItemView extends RelativeLayout {
         if (getBackground() == null) {
             setBackgroundResource(R.drawable.bg_d_sc_default);
         }
-
+        vLine.setVisibility(mShowLine ? VISIBLE : GONE);
     }
 
     /**
@@ -162,6 +166,16 @@ public class IconItemView extends RelativeLayout {
     public String getRightText() {
         //this.mRightText = rightText;
         return tvRightText.getText().toString();
+    }
+
+    public void setLeftText(String text) {
+        this.mText = text;
+        tvText.setText(mText);
+    }
+
+    public void setLeftTextColor(@ColorInt int color) {
+        mTextColor = color;
+        tvText.setTextColor(color);
     }
 
     /**
@@ -174,7 +188,12 @@ public class IconItemView extends RelativeLayout {
         tvRightText.setText(mRightText);
     }
 
-    public ImageView getmIvRight() {
+    public void setRightTextColor(@ColorInt int color) {
+        mRightTextColor = color;
+        tvRightText.setTextColor(color);
+    }
+
+    public ImageView getIvRight() {
         return mIvRight;
     }
 

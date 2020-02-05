@@ -15,5 +15,6 @@
         <attr name="rightTextSize" format="dimension" />
         <attr name="rightTextSingleLine" format="boolean" />
         <attr name="rightTextWidth" format="dimension" />
+        <attr name="showLine" format="boolean" />
     </declare-styleable>
 </resources>
