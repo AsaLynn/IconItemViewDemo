@@ -116,4 +116,36 @@
         app:rightTextSingleLine="true"
         app:textColor="@color/c_666666" />
 
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_6"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:paddingLeft="25dp"
+        app:leftIconPadding="20dp"
+        app:lineColor="@color/c_dddddd"
+        app:rightIconPadding="20dp"
+        app:rightTextPadding="10dp"
+        app:text="标题2"
+        app:rightText="666666"
+        app:showLine="true"
+        app:rightTextSingleLine="true"
+        app:textColor="@color/c_666666" />
+
+    <com.zxn.iconitemview.IconItemView
+        android:id="@+id/iiv_7"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:clickable="true"
+        android:paddingLeft="25dp"
+        app:leftIconPadding="20dp"
+        app:lineColor="@color/c_dddddd"
+        app:rightIconPadding="20dp"
+        app:rightTextPadding="10dp"
+        app:text="标题7"
+        app:rightText="7777"
+        app:showLine="false"
+        app:rightTextSingleLine="true"
+        app:textColor="@color/c_666666" />
+
 </LinearLayout>

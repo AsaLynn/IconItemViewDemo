@@ -5,8 +5,9 @@
 
 1,依赖
 ```
-implementation 'com.zxn.iconitemview:iconitemview:1.0.9'
+implementation 'com.zxn.iconitemview:iconitemview:1.1.1'
 implementation 'com.zxn.iconitemview:iconitemview:1.1.0'
+implementation 'com.zxn.iconitemview:iconitemview:1.1.1'
 ```
 2,布局中使用
 ```
@@ -33,18 +34,25 @@ implementation 'com.zxn.iconitemview:iconitemview:1.1.0'
 ```
 ## 标签
 
-- 小精灵商户通v1.0.9
+- 小精灵商户通v1.1.1
 ```
-git tag -a v1.0.9 -m 'iconitemview:v1.0.9'
-git push origin v1.0.9
+git tag -a v1.1.1 -m 'iconitemview:v1.1.1'
+git push origin v1.1.1
+git tag
+```
+
+- 小精灵商户通v1.1.1
+```
+git tag -a v1.1.1 -m 'iconitemview:v1.1.1'
+git push origin v1.1.1
 git tag
 ```
 更新内容:
 1,增加方法.
 
-- 小精灵商户通v1.0.9
+- 小精灵商户通v1.1.1
 ```
-git tag -a v1.0.9 -m 'iconitemview:v1.0.9()'
-git push origin v1.0.9
+git tag -a v1.1.1 -m 'iconitemview:v1.1.1()'
+git push origin v1.1.1
 git tag
 ```

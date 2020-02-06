@@ -81,6 +81,7 @@ public class IconItemView extends RelativeLayout {
         }
         tvText.setTextColor(mTextColor);
         vLine.setBackgroundColor(mLineColor);
+        vLine.setVisibility(mShowLine ? View.VISIBLE : INVISIBLE);
         tvText.setCompoundDrawablePadding(mLeftIconPadding);
         tvText.setPadding(0, 0, mRightIconPadding, 0);
 
@@ -157,7 +158,7 @@ public class IconItemView extends RelativeLayout {
         if (getBackground() == null) {
             setBackgroundResource(R.drawable.bg_d_sc_default);
         }
-        vLine.setVisibility(mShowLine ? VISIBLE : GONE);
+
     }
 
     /**
